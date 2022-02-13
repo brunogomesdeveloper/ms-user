@@ -1,27 +1,24 @@
+/* eslint-disable prettier/prettier */
 import { Sequelize } from 'sequelize-typescript';
-import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../index';
-import { databaseConfig } from './database.config';
+import { User } from 'src/user/entities/user.entity';
 
 export const databaseProviders = [
   {
-    provide: SEQUELIZE,
+    provide: 'SEQUELIZE',
     useFactory: async () => {
-      let config;
-      switch (process.env.NODE_ENV) {
-        case DEVELOPMENT:
-          config = databaseConfig.development;
-          break;
-        case TEST:
-          config = databaseConfig.test;
-          break;
-        case PRODUCTION:
-          config = databaseConfig.production;
-          break;
-        default:
-          config = databaseConfig.development;
-      }
-      const sequelize = new Sequelize(config);
-      sequelize.addModels(['models goes here']);
+      //   const sequelize = new Sequelize({
+      //     dialect: 'postgres',
+      //     host: 'postgres://npmpzylp:m0sWiC9yvgm5nnmMchHHTZV9LPnHX8Ca@castor.db.elephantsql.com/npmpzylp',
+      //     port: 3306,
+      //     username: 'npmpzylp',
+      //     password: 'm0sWiC9yvgm5nnmMchHHTZV9LPnHX8Ca',
+      //     database: 'instance',
+      //   });
+      const sequelize = new Sequelize(
+        'postgres://npmpzylp:m0sWiC9yvgm5nnmMchHHTZV9LPnHX8Ca@castor.db.elephantsql.com/npmpzylp',
+        { dialect: 'postgres' },
+      );
+      sequelize.addModels([User]);
       await sequelize.sync();
       return sequelize;
     },
