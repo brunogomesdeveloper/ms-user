@@ -58,6 +58,42 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## commands used for creation
+```bash
+
+nest new ms-user
+
+nest g resouce user
+
+npm install -g sequelize
+
+npm install --save sequelize sequelize-typescript pg-hstore pg
+
+npm install --save-dev @types/sequelize
+
+npm install dotenv --save
+
+npm i --save @nestjs/config
+
+```
+
+## Commits convention
+
+
+feat     Adição de funcionalidade.
+fix      Correção de defeito.
+docs     Mudança em documentação.
+style    Mudança de formatação ou estilo, que não afeta a execução do código (espaço, tabulação, etc).
+refactor Mudança na organização do código, que não afeta o comportamento existente.       
+test     Adição ou mudança de um teste.
+chore    Adição ou mudança em script de build, que não afeta o código de produção.        
+perf     Mudança de código para melhoria de desempenho.
+ci       Mudança de configuração de integração contínua.
+build    Mudança em arquivos de build ou em dependências externas.
+temp     Commit temporário, que não deve ser incluído no CHANGELOG.
+
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
@@ -74,30 +110,5 @@ Nest is [MIT licensed](LICENSE).
 
 
 
-feat     Adição de funcionalidade.
-fix      Correção de defeito.
-docs     Mudança em documentação.
-style    Mudança de formatação ou estilo, que não afeta a execução do código (espaço, tabulação, etc).
-refactor Mudança na organização do código, que não afeta o comportamento existente.       
-test     Adição ou mudança de um teste.
-chore    Adição ou mudança em script de build, que não afeta o código de produção.        
-perf     Mudança de código para melhoria de desempenho.
-ci       Mudança de configuração de integração contínua.
-build    Mudança em arquivos de build ou em dependências externas.
-temp     Commit temporário, que não deve ser incluído no CHANGELOG.
 
 
-nest new ms-user
-
-
-nest g resouce user
-
-npm install -g sequelize
-npm install --save sequelize sequelize-typescript pg-hstore pg
-npm install --save-dev @types/sequelize
-npm install dotenv --save
-
-
-npm i --save @nestjs/config
-
-nest generate module /modules/users
