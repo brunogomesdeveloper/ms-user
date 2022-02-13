@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Sequelize } from 'sequelize-typescript';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/user/user.entity';
 
 export const databaseProviders = [
   {
