@@ -85,3 +85,19 @@ perf     Mudança de código para melhoria de desempenho.
 ci       Mudança de configuração de integração contínua.
 build    Mudança em arquivos de build ou em dependências externas.
 temp     Commit temporário, que não deve ser incluído no CHANGELOG.
+
+
+nest new ms-user
+
+
+nest g resouce user
+
+npm install -g sequelize
+npm install --save sequelize sequelize-typescript pg-hstore pg
+npm install --save-dev @types/sequelize
+npm install dotenv --save
+
+
+npm i --save @nestjs/config
+
+nest generate module /modules/users
