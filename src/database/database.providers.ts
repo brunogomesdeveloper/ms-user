@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Sequelize } from 'sequelize-typescript';
-import { User } from 'src/user/user.entity';
+import { User } from 'src/user/entity';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export const databaseProviders = [
   {
@@ -15,7 +17,7 @@ export const databaseProviders = [
       //     database: 'instance',
       //   });
       const sequelize = new Sequelize(
-        'postgres://npmpzylp:m0sWiC9yvgm5nnmMchHHTZV9LPnHX8Ca@castor.db.elephantsql.com/npmpzylp',
+        process.env.DB_HOST,
         { dialect: 'postgres' },
       );
       sequelize.addModels([User]);

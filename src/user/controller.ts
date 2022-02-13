@@ -7,8 +7,8 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { User } from './user.entity';
-import { UserService } from './user.service';
+import { User } from './entity';
+import { UserService } from './service';
 
 @Controller('user')
 export class UserController {
