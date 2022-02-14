@@ -16,10 +16,9 @@ export const databaseProviders = [
       //     password: 'm0sWiC9yvgm5nnmMchHHTZV9LPnHX8Ca',
       //     database: 'instance',
       //   });
-      const sequelize = new Sequelize(
-        process.env.DB_HOST,
-        { dialect: 'postgres' },
-      );
+      const sequelize = new Sequelize(process.env.DB_HOST, {
+        dialect: 'postgres',
+      });
       sequelize.addModels([User]);
       await sequelize.sync();
       return sequelize;

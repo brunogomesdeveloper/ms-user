@@ -6,16 +6,35 @@ import {
   Patch,
   Param,
   Delete,
+  UsePipes,
+  ValidationPipe,
+  UseGuards,
+  Request,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { AuthService } from 'src/auth/auth.service';
+import { LocalAuthGuard } from 'src/auth/local-auth.guard';
+import { CreateUserDto } from './dto';
 import { User } from './entity';
 import { UserService } from './service';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private authService: AuthService,
+  ) {}
+
+  @UseGuards(AuthGuard('local'))
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/login')
+  async login(@Request() req) {
+    return this.authService.login(req.user);
+  }
 
   @Post()
-  create(@Body() user: User) {
+  @UsePipes(new ValidationPipe({ transform: true }))
+  create(@Body() user: CreateUserDto) {
     return this.userService.create(user);
   }
 

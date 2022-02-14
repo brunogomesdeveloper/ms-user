@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-
+import { CreateUserDto } from './dto';
 import { User } from './entity';
 
 @Injectable()
@@ -9,7 +9,7 @@ export class UserService {
     private userRepository: typeof User,
   ) {}
 
-  create(user: User): Promise<User> {
+  create(user: CreateUserDto): Promise<User> {
     return this.userRepository.create<User>(user);
   }
 
@@ -20,6 +20,12 @@ export class UserService {
   findOne(id: number) {
     return this.userRepository.findOne<User>({
       where: { id: id },
+    });
+  }
+
+  findOneName(name: string) {
+    return this.userRepository.findOne<User>({
+      where: { name: name },
     });
   }
 
